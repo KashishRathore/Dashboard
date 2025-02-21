@@ -131,7 +131,7 @@ const speedChart = new Chart(ctx1, {
     plugins: [centerTextPlugin] // Register the plugin
 });
 
-// RPM Chart (Example)
+// RPM Chart
 const rpmChart = new Chart(ctx2, {
     type: 'doughnut',
     data: {
@@ -185,10 +185,10 @@ const currentTimeDisplay = document.getElementById('currentTime');
 const totalTimeDisplay = document.getElementById('totalTime');
 
 const songs = [
-    { name: "Shape of You", src: "audio/Shape_Of_You.mp3", cover: "images/cover2.jpg" },
-    { name: "Blinding Lights", src: "audio/blinding_lights.mp3", cover: "images/cover3.jpg" },
-    { name: "Faded", src: "audio/faded.mp3", cover: "images/cover4.jpg" },
-    { name: "Levitating", src: "audio/levitating.mp3", cover: "images/cover5.jpg" }
+    { name: "Shape of You", src: "audio/Shape_Of_You.mp3", cover: "images/Shape_Of_You.jpg" },
+    { name: "Faded", src: "audio/Faded.mp3", cover: "images/Faded.jpg" },
+    { name: "Cheap Thrills", src: "audio/Cheap_Thrills.mp3", cover: "images/Cheap_Thrills.jpg" },
+    { name: "Let Me Down", src: "audio/Let_Me_Down.mp3", cover: "images/Let_Me_Down.jpg" },
 ];
 
 let currentSongIndex = 0;

@@ -12,7 +12,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<body>
+<body style="background: linear-gradient(45deg, rgb(61, 77, 63), rgb(161, 161, 161)); color: white;">
     <div class="dashboard">
         <div class="sidebar">
             <p class="logo"><img src="https://media.licdn.com/dms/image/v2/D4D0BAQGH-aYmjldVSA/company-logo_200_200/company-logo_200_200/0/1713599366154/hartalkar_industries_logo?e=1748476800&v=beta&t=M9fF8XTbN3RUa7xaoPlESRnJoZ9sRU40wY0hL9dUeQk" alt=""></p>
@@ -48,7 +48,13 @@
             <div class="top-section">
                 <canvas id="speedChart"></canvas>
                 <div class="mode">
-                    <p>P</p>
+                    <div class="mode">
+                        <i>P</i>
+                        <i style="background-color: white; color: black">R</i>
+                        <i style="background-color: white; color: black">N</i>
+                        <i style="background-color: white; color: black">M</i>
+                    </div>
+                    
                 </div>
                 <canvas id="rpmChart"></canvas>
                 <img src="https://static.vecteezy.com/system/resources/thumbnails/016/720/433/small_2x/black-car-vehicle-transparent-background-side-view-png.png" class="car-image" alt="Car">
@@ -58,17 +64,17 @@
                     <div class="levels">
                         <div>
                             <i class="fa-solid fa-bolt"></i>
-                            <h4>SUNNY</h4>
+                            <h4>150</h4>
                             <p>Range</p>
                         </div>
                         <div>
-                            <i class="fa-brands fa-soundcloud"></i>
-                            <h4>20°C</h4>
+                            <i class="fa-solid fa-gauge-simple"></i>
+                            <h4>320Nm</h4>
                             <p>Torque</p>
                         </div>
                         <div>
                             <i class="fa-solid fa-cart-flatbed-suitcase"></i>
-                            <h4>30%</h4>
+                            <h4>47KW</h4>
                             <p>Power</p>
                         </div>
                     </div>
@@ -96,7 +102,7 @@
                         <div class="player">
                             <i class="fas fa-moon dark-mode-toggle" id="themeToggle"></i>
                             <img src="cover1.jpg" id="albumArt" class="album-art" alt="Album Art">
-                            <div class="song-title glow" id="songTitle">Dilbar</div>
+                            <div class="song-title glow" id="songTitle"></div>
                             
                             <audio id="audio"></audio>
                     
