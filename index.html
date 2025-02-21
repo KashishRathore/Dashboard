@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Dashboard UI</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="dashboard">
+        <div class="sidebar">
+            <p class="logo"><img src="/images/logo.png" alt=""></p>
+            <span id="day">Loading...</span><b>, </b><span id="time">00:00:00</span>
+            <button id="fullscreen-button"></button>
+            <nav class="nav">
+                <a href="/">
+                    <i class="fa-solid fa-gauge"></i>
+                    <h5>Overview</h5>
+                </a>
+                <a href="/language.html">
+                    <i class="fa-solid fa-language"></i>
+                    <h5>Language</h5>
+                </a>
+                <a href="/geofencing.html">
+                    <i class="fa-solid fa-map-location-dot"></i>
+                    <h5>Geofencing</h5>
+                </a>
+                <a href="/sign.html">
+                    <i class="fa-solid fa-traffic-light"></i>
+                    <h5>Traffic Sign</h5>
+                </a>
+            </nav>
+        </div>
+        <div class="main-content">
+            <div class="battery-container">
+                <div class="battery-level" id="battery-level"></div>
+                <div class="battery-percentage" id="battery-percentage">65%</div>
+                <div class="battery-top"></div>
+            </div>
+            <div id="date">Loading...</div>
+
+            <div class="top-section">
+                <canvas id="speedChart"></canvas>
+                <div class="mode">
+                    <p>P</p>
+                </div>
+                <canvas id="rpmChart"></canvas>
+                <img src="/images/Car.webp" class="car-image" alt="Car">
+            </div>
+            <div class="data">
+                <div class="left-section">
+                    <div class="levels">
+                        <div>
+                            <i class="fa-solid fa-bolt"></i>
+                            <h4>SUNNY</h4>
+                            <p>Range</p>
+                        </div>
+                        <div>
+                            <i class="fa-brands fa-soundcloud"></i>
+                            <h4>20°C</h4>
+                            <p>Torque</p>
+                        </div>
+                        <div>
+                            <i class="fa-solid fa-cart-flatbed-suitcase"></i>
+                            <h4>30%</h4>
+                            <p>Power</p>
+                        </div>
+                    </div>
+                    <div class="climate">
+                        <div>
+                            <i class="fa-solid fa-cloud"></i>
+                            <h4>SUNNY</h4>
+                            <p>Weather</p>
+                        </div>
+                        <div>
+                            <i class="fa-solid fa-temperature-high"></i>
+                            <h4>20°C</h4>
+                            <p>Temperature</p>
+                        </div>
+                        <div>
+                            <i class="fa-solid fa-droplet"></i>
+                            <h4>30%</h4>
+                            <p>Humidity</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="right-section">
+                    <div class="level">
+                        <div class="player">
+                            <i class="fas fa-moon dark-mode-toggle" id="themeToggle"></i>
+                            <img src="cover1.jpg" id="albumArt" class="album-art" alt="Album Art">
+                            <div class="song-title glow" id="songTitle">Dilbar</div>
+                            
+                            <audio id="audio"></audio>
+                    
+                            <div class="progress-container">
+                                <div class="progress-bar" id="progressBar">
+                                    <div class="progress" id="progress"></div>
+                                </div>
+                                <div class="time-container">
+                                    <span id="currentTime">0:00</span>
+                                    <span id="totalTime">0:00</span>
+                                </div>
+                            </div>
+                    
+                            <div class="controls">
+                                <button class="control-btn" id="shuffleBtn"><i class="fas fa-random"></i></button>
+                                <button class="control-btn" id="prevBtn"><i class="fas fa-backward"></i></button>
+                                <button class="control-btn" id="playPauseBtn"><i class="fas fa-play"></i></button>
+                                <button class="control-btn" id="nextBtn"><i class="fas fa-forward"></i></button>
+                                <button class="control-btn" id="repeatBtn"><i class="fas fa-sync"></i></button>
+                            </div>
+                    
+                            <div class="volume-control">
+                                <i class="fas fa-volume-mute" id="muteBtn"></i>
+                                <input type="range" id="volumeControl" min="0" max="1" step="0.1" value="1">
+                                <i class="fas fa-volume-up"></i>
+                            </div>
+                    
+                            <div class="visualizer">
+                                <div class="bar"></div>
+                                <div class="bar"></div>
+                                <div class="bar"></div>
+                                <div class="bar"></div>
+                                <div class="bar"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="index.js"></script>
+
+</html>

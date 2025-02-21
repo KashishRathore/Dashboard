@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webcam with Theme Toggle</title>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        :root {
+            --bg-color: white;
+            --text-color: black;
+            --btn-bg: #007bff;
+            --btn-text: white;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --text-color: white;
+            --btn-bg: #ff9800;
+            --btn-text: black;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: Arial, sans-serif;
+            text-align: center;
+            transition: 0.3s ease-in-out;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        video {
+            width: 60%;
+            border: 2px solid var(--text-color);
+            border-radius: 10px;
+            margin-top: 20px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            background-color: var(--btn-bg);
+            color: var(--btn-text);
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--btn-bg);
+            color: var(--btn-text);
+            border: none;
+            padding: 10px;
+            font-size: 18px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .theme-toggle:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Floating Theme Toggle Button -->
+    <button class="theme-toggle" id="themeBtn">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <div class="container">
+        <h2>Webcam Viewer</h2>
+        <video id="webcam" autoplay playsinline></video>
+        <br>
+        <button id="startBtn"><i class="fas fa-play"></i> Start Camera</button>
+        <button id="stopBtn"><i class="fas fa-stop"></i> Stop Camera</button>
+    </div>
+
+    <script>
+        const video = document.getElementById("webcam");
+        const startBtn = document.getElementById("startBtn");
+        const stopBtn = document.getElementById("stopBtn");
+        const themeBtn = document.getElementById("themeBtn");
+
+        let stream = null;
+
+        // Function to start the webcam
+        async function startWebcam() {
+            try {
+                stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                video.srcObject = stream;
+            } catch (error) {
+                console.error("Error accessing webcam:", error);
+            }
+        }
+
+        // Function to stop the webcam
+        function stopWebcam() {
+            if (stream) {
+                stream.getTracks().forEach(track => track.stop());
+                video.srcObject = null;
+            }
+        }
+
+        // Toggle Light/Dark Mode
+        function toggleTheme() {
+            const currentTheme = document.body.getAttribute("data-theme");
+            document.body.setAttribute("data-theme", currentTheme === "dark" ? "light" : "dark");
+
+            // Change theme icon
+            themeBtn.innerHTML = currentTheme === "dark" ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
+        }
+
+        // Event Listeners
+        startBtn.addEventListener("click", startWebcam);
+        stopBtn.addEventListener("click", stopWebcam);
+        themeBtn.addEventListener("click", toggleTheme);
+    </script>
+
+</body>
+</html>
+
